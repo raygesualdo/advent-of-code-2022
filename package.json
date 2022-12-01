@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "scaffold": "node config/scaffold.mjs",
+    "solve": "node config/solve.mjs",
+    "test": "ava",
+    "test:watch": "ava --watch"
+  },
+  "dependencies": {
+    "ava": "^5.1.0"
+  }
+}

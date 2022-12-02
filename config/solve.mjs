@@ -30,7 +30,7 @@ async function getModule() {
 
 function getInput() {
   try {
-    const text = readFileSync(`data/day${day}.txt`, 'utf-8')
+    const text = readFileSync(`data/day${day}.txt`, 'utf-8').trim()
     return text.split('\n')
   } catch {
     throw new Error(`Data file "day${day}.txt" does not exist.`)

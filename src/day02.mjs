@@ -11,6 +11,15 @@
 // Draw:     Y, 2
 // Win:      Z, 3
 
+const plays = [
+  [1, 3, 0],
+  [2, 1, 0],
+  [3, 2, 0],
+  [1, 2, 6],
+  [2, 3, 6],
+  [3, 1, 6],
+]
+
 const letterToScore = (letter) => {
   if (['A', 'X'].includes(letter)) return 1
   if (['B', 'Y'].includes(letter)) return 2
@@ -19,38 +28,18 @@ const letterToScore = (letter) => {
 
 const convertToScores = (arr) =>
   arr.map((line) => {
-    const [them, me] = line.split(' ')
-    const theirScore = letterToScore(them)
-    const myScore = letterToScore(me)
-    return [theirScore, myScore]
+    return line.split(' ').map(letterToScore)
   })
 
 const outcomePoints = (a, b) => {
   if (a === b) return 3
-  if (a === 1 && b === 2) return 6
-  if (a === 1 && b === 3) return 0
-  if (a === 2 && b === 1) return 0
-  if (a === 2 && b === 3) return 6
-  if (a === 3 && b === 1) return 6
-  if (a === 3 && b === 2) return 0
-  return 0
+  return plays.find((x) => x[0] === a && x[1] === b)[2]
 }
 
 const outcomeToScore = (a, b) => {
-  // Draw
   if (b === 2) return a
-  // Lose
-  if (b === 1) {
-    if (a === 1) return 3
-    if (a === 2) return 1
-    if (a === 3) return 2
-  }
-  // Win
-  if (b === 3) {
-    if (a === 1) return 2
-    if (a === 2) return 3
-    if (a === 3) return 1
-  }
+  const c = b === 1 ? 0 : 6
+  return plays.find((x) => x[0] === a && x[2] === c)[1]
 }
 
 const scoresToPoints = (arr) => arr.map(([a, b]) => outcomePoints(a, b) + b)

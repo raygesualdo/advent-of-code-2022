@@ -38,7 +38,7 @@ test('Part 1', (t) => {
   t.is(part1(input), expected)
 })
 
-test('Part 2', (t) => {
+test.skip('Part 2', (t) => {
   const expected = null
   t.is(part2(input), expected)
 })

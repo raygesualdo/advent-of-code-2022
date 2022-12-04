@@ -1,3 +1,5 @@
+import { sum } from './utils.mjs'
+
 // Part 1
 // Rock:     A, X, 1
 // Paper:    B, Y, 2
@@ -44,19 +46,15 @@ const outcomeToScore = (a, b) => {
 
 const scoresToPoints = (arr) => arr.map(([a, b]) => outcomePoints(a, b) + b)
 
-const sum = (arr) => arr.reduce((acc, num) => acc + num, 0)
-
 export function part1(input) {
   const scores = convertToScores(input)
   const points = scoresToPoints(scores)
-  const total = sum(points)
-  return total
+  return sum(points)
 }
 
 export function part2(input) {
   const scoreAndOutcome = convertToScores(input)
   const scores = scoreAndOutcome.map(([a, b]) => [a, outcomeToScore(a, b)])
   const points = scoresToPoints(scores)
-  const total = sum(points)
-  return total
+  return sum(points)
 }

@@ -10,3 +10,15 @@ export const intersect = (enum1, enum2) => {
   const c = new Set([...a].filter((i) => b.has(i)))
   return Array.from(c)
 }
+
+export const chunkByBlankLines = (arr) => {
+  const chunks = [[]]
+  for (const item of arr) {
+    if (!item) {
+      chunks.push([])
+    } else {
+      chunks.at(-1).push(item)
+    }
+  }
+  return chunks
+}

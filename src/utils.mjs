@@ -22,3 +22,12 @@ export const chunkByBlankLines = (arr) => {
   }
   return chunks
 }
+
+export function chunkInto(array, chunkSize) {
+  const length = array.length
+  const chunks = []
+  for (let start = 0; start < length; start += chunkSize) {
+    chunks.push(array.slice(start, start + chunkSize))
+  }
+  return chunks
+}

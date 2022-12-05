@@ -30,8 +30,8 @@ import test from 'ava'
 import { part1, part2 } from './day${day}.mjs'
 
 const input = \`\`
-  .trim()
   .split('\\n')
+  .slice(1, -1)
 
 test('Part 1', (t) => {
   const expected = null

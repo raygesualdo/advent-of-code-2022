@@ -6,8 +6,8 @@ A Y
 B X
 C Z
 `
-  .trim()
   .split('\n')
+  .slice(1, -1)
 
 test('Part 1', (t) => {
   const expected = 15

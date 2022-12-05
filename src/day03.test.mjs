@@ -9,8 +9,8 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 `
-  .trim()
   .split('\n')
+  .slice(1, -1)
 
 test('Part 1', (t) => {
   const expected = 157

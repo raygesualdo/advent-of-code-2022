@@ -9,8 +9,8 @@ const input = `
 6-6,4-6
 2-6,4-8
 `
-  .trim()
   .split('\n')
+  .slice(1, -1)
 
 test('Part 1', (t) => {
   const expected = 2

@@ -17,8 +17,8 @@ const input = `
 
 10000
 `
-  .trim()
   .split('\n')
+  .slice(1, -1)
 
 const is = test.macro((t, input, expected) => {
   t.is(input, expected)
